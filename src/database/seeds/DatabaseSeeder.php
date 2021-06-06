@@ -1,6 +1,7 @@
 <?php
 
 use App\Models\Blog;
+use App\Models\User;
 use Illuminate\Database\Seeder;
 
 class DatabaseSeeder extends Seeder
@@ -14,6 +15,9 @@ class DatabaseSeeder extends Seeder
     {
         // $this->call(UsersTableSeeder::class);
 
-        factory(Blog::class, 30)->create();
+        factory(User::class,10)->create()->each(function ($user){
+
+            factory(Blog::class, random_int(2,5))->create(['user_id' => $user]);
+        });
     }
 }
