@@ -6,6 +6,8 @@
 
 <ul>
     @foreach($blogs as $blog)
+    {{-- $blog->userがnullじゃなければnameを表示 --}}
+    {{-- <li>{{ $blog->title }} {{ optional($blog->user)->name }}</li> --}}
     <li>{{ $blog->title }} {{ $blog->user->name }}</li>
     @endforeach
 </ul>
