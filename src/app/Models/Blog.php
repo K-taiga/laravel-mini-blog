@@ -18,4 +18,10 @@ class Blog extends Model
     {
         return $this->hasMany(Comment::class);
     }
+    
+    public function scopeOnlyPublic($query)
+    {
+        // マジックプロパティを使いたくないためboolで指定
+        return $query->where('is_open',true);
+    }
 }

@@ -12,6 +12,8 @@ $factory->define(Blog::class, function (Faker $faker) {
         // 'user_id' => function () {
         //     return User::factory()->create()->id;
         // },
+        // randomElementで配列の中身をrandomで指定 true=1,false=0でよしなにやってくれる
+        'is_open' => $this->faker->randomElement([true,true,true,true,false]),
         'title' => $this->faker->realText(20),
         'body' => $this->faker->realText(20),
         'updated_at' => $this->faker->dateTimeBetween('-10days','0days'),
