@@ -12,7 +12,7 @@ class HomeController extends Controller
         $blogs = Blog::with('user')
             ->withCount('comments')
             ->orderByDesc('comments_count')
-            ->onlyPublic()
+            ->onlyOpen()
             //defaultで作成日時を指定
             ->latest('updated_at') //orderByDesc('updated_at')
             ->get();
