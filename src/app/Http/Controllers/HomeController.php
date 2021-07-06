@@ -29,6 +29,6 @@ class HomeController extends Controller
 
         abort_unless($blog->is_open,403);
 
-        dd($blog);
+        return view('blog.show',compact('blog'));
     }
 }
