@@ -7,6 +7,10 @@ use Illuminate\Database\Eloquent\Model;
 class Blog extends Model
 {
 
+    protected $casts = [
+        'is_open' => 'boolean',
+    ];
+    
     public function user()
     {
         return $this->belongsTo(User::class)->withDefault([

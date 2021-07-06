@@ -19,4 +19,16 @@ class HomeController extends Controller
 
         return view('home', compact('blogs'));
     }
+
+    public function show(Blog $blog)
+    {
+        // 非公開のものは見られないようにする
+        // if (!$blog->is_open) {
+        //     abort(403);
+        // }
+
+        abort_unless($blog->is_open,403);
+
+        dd($blog);
+    }
 }
